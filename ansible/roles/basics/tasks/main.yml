@@ -1,0 +1,26 @@
+- set_fact: role_name=basics
+
+##################################################
+### Basic system packages and firewall config
+- name: Set up firewall
+  shell: systemctl enable firewalld
+
+- name: Start the firewall
+  shell: systemctl start firewalld
+
+- name: Update Yum
+  yum: name=* state=latest
+
+- name: Install basic packages
+  yum: pkg={{ item }} state=installed
+  with_items:
+   - yum-utils
+   - vim
+   - git
+   - curl
+   - wget
+   - vim
+   - man
+   - zip
+   - unzip
+   - epel-release
