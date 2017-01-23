@@ -3,11 +3,12 @@
 This is just a simple LEMP setup with nginx, php7 and mariadb on a CentOS box from the bento project.
 
 ## Requirements
-1. Virtualbox >= 5.1.14
-2. Vagrant = 1.8.7
-3. Vagrant Plugins:
+1. Linux or macOS
+2. Virtualbox >= 5.1.14
+3. Vagrant = 1.8.7
+4. Vagrant Plugins:
  - vagrant-vbguest (recommended)
- - vagrant-winnfsd (only for windows)
+5. Ansible >= 2.2.1.0
 
 ## Installation
 1. git clone https://github.com/neikei/vagrant-centos7-ansible-lemp.git

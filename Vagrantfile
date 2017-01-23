@@ -34,12 +34,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "parallels"
   config.vm.provider "virtualbox"
 
-  # Check available Plugins
+  # Check OS
   if OS.windows?
-      if !Vagrant.has_plugin?('vagrant-winnfsd')
-          puts "The vagrant-winnfsd plugin is required. Please install it with \"vagrant plugin install vagrant-winnfsd\""
-          exit
-      end
+      puts "The Ansible deployment is not available for Windows, sorry..."
+      exit
   end
 
   if Vagrant.has_plugin?('vagrant-vbguest')
@@ -64,11 +62,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3306, host: 3306  # mariadb
   config.vm.network :private_network, ip: "192.168.56.123"
 
-  if OS.windows?
-    config.vm.synced_folder ".", "/vagrant", type: "nfs"
-  else
-    config.vm.synced_folder ".", "/vagrant", :owner => "vagrant", :group => "vagrant"
-  end
+  config.vm.synced_folder ".", "/vagrant", :owner => "vagrant", :group => "vagrant"
 
   # Run the provisioning
   config.vm.provision "ansible" do |ansible|
