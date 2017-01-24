@@ -3,18 +3,17 @@
 This is just a simple LEMP setup with nginx, php7 and mariadb on a CentOS box from the bento project.
 
 ## Requirements
-1. Linux or macOS
-2. Virtualbox >= 5.1.14
-3. Vagrant = 1.8.7
-4. Vagrant Plugins:
+1. Virtualbox >= 5.1.14
+2. Vagrant = 1.8.7
+3. Vagrant Plugins:
  - vagrant-vbguest (recommended)
-5. Ansible >= 2.2.1.0
 
 ## Installation
 1. git clone https://github.com/neikei/vagrant-centos7-ansible-lemp.git
 2. cd vagrant-centos7-ansible-lemp
 3. vagrant up
-4. Check the phpinfo(): http://192.168.56.123
+4. ... wait ...
+5. Check the phpinfo(): http://192.168.56.123
 
 ## Playground access
 
@@ -27,6 +26,10 @@ This is just a simple LEMP setup with nginx, php7 and mariadb on a CentOS box fr
 Place your stuff in the subfolder web, because the folder is configured as share into the webserver root path in your VM.
 
 ## Changelog
+24 January 2017
+ - Implemented Windows support
+ - Changed the provisioning to ansible_local
+
 23 January 2017
  - Initial Commit
  - CentOS 7.3, Nginx, PHP7, MariaDB
